@@ -18,25 +18,25 @@ namespace B10802010陳柏翰
            
             Console.WriteLine("1A2B數字遊戲");
             
-            Random one_rand = new Random();
-            numbers[0] = one_rand.Next(0,10);
-            Random two_rand = new Random();
-            numbers[1] = two_rand.Next(0, 10);
+            Random rand = new Random();
+            numbers[0] = rand.Next(0,10);
+           
+            numbers[1] = rand.Next(0, 10);
             while(numbers[0] == numbers[1])
             {
-                numbers[1] = two_rand.Next(0, 10);
+                numbers[1] = rand.Next(0, 10);
             }
-            Random three_rand = new Random();
-            numbers[2] = three_rand.Next(0, 10);
+            
+            numbers[2] = rand.Next(0, 10);
             while (numbers[0] == numbers[2] || numbers[1] == numbers[2])
             {
-                numbers[2] = three_rand.Next(0, 10);
+                numbers[2] = rand.Next(0, 10);
             }
-            Random four_rand = new Random();
-            numbers[3] = four_rand.Next(0, 10);
+            
+            numbers[3] = rand.Next(0, 10);
             while (numbers[0] == numbers[3] || numbers[1] == numbers[3] || numbers[2] == numbers[3])
             {
-                numbers[3] = four_rand.Next(0, 10);
+                numbers[3] = rand.Next(0, 10);
             }
 
             foreach (int i in numbers)
