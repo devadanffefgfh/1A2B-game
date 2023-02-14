@@ -10,36 +10,40 @@ namespace B10802010陳柏翰
     {
         static void Main(string[] args)
         {
+            int[] numbers = new int[4];
             
-            Random one_rand = new Random();
             
             
+            
+           
             Console.WriteLine("1A2B數字遊戲");
             
-           
-            int one = one_rand.Next(0, 10);
+            Random one_rand = new Random();
+            numbers[0] = one_rand.Next(0,10);
             Random two_rand = new Random();
-           
-            int two = two_rand.Next(0, 10);
-            while(one==two)
+            numbers[1] = two_rand.Next(0, 10);
+            while(numbers[0] == numbers[1])
             {
-                two = two_rand.Next(0, 10);
+                numbers[1] = two_rand.Next(0, 10);
             }
             Random three_rand = new Random();
-            int three = three_rand.Next(0, 10);
-            while (one == three ||two==three)
+            numbers[2] = three_rand.Next(0, 10);
+            while (numbers[0] == numbers[2] || numbers[1] == numbers[2])
             {
-                three = three_rand.Next(0, 10);
+                numbers[2] = three_rand.Next(0, 10);
             }
             Random four_rand = new Random();
-            int four = four_rand.Next(0, 10);
-            while (one == four || two == four || three==four)
+            numbers[3] = four_rand.Next(0, 10);
+            while (numbers[0] == numbers[3] || numbers[1] == numbers[3] || numbers[2] == numbers[3])
             {
-                four = four_rand.Next(0, 10);
+                numbers[3] = four_rand.Next(0, 10);
             }
 
-           
-            Console.WriteLine($"{one},{two},{three},{four}");
+            foreach (int i in numbers)
+            {
+                Console.Write($"{i} ");
+            }
+            
             
             bool play = true;
             int b = 0;
@@ -51,38 +55,38 @@ namespace B10802010陳柏翰
 
 
 
-                if (player_numbers.Contains(one.ToString())==true&& Int32.Parse(player_numbers[0].ToString()) != one)
+                if (player_numbers.Contains(numbers[0].ToString())==true&& Int32.Parse(player_numbers[0].ToString()) != numbers[0])
                 {
                     b++;
                     
                 }
-                if (player_numbers.Contains(two.ToString()) == true && Int32.Parse(player_numbers[1].ToString()) != two)
+                if (player_numbers.Contains(numbers[1].ToString()) == true && Int32.Parse(player_numbers[1].ToString()) != numbers[1])
                 {
                     b++;
                 }
-                if (player_numbers.Contains(three.ToString()) == true && Int32.Parse(player_numbers[2].ToString()) != three)
+                if (player_numbers.Contains(numbers[2].ToString()) == true && Int32.Parse(player_numbers[2].ToString()) != numbers[2])
                 {
                     b++;
                 }
-                if (player_numbers.Contains(four.ToString()) == true && Int32.Parse(player_numbers[3].ToString()) != four)
+                if (player_numbers.Contains(numbers[3].ToString()) == true && Int32.Parse(player_numbers[3].ToString()) != numbers[3])
                 {
                     b++;
                 }
 
-                if (player_numbers.Contains(one.ToString()) == true && Int32.Parse(player_numbers[0].ToString()) == one)
+                if (player_numbers.Contains(numbers[0].ToString()) == true && Int32.Parse(player_numbers[0].ToString()) == numbers[0])
                 {
                     a++;
 
                 }
-                if (player_numbers.Contains(two.ToString()) == true && Int32.Parse(player_numbers[1].ToString()) == two)
+                if (player_numbers.Contains(numbers[1].ToString()) == true && Int32.Parse(player_numbers[1].ToString()) == numbers[1])
                 {
                     a++;
                 }
-                if (player_numbers.Contains(three.ToString()) == true && Int32.Parse(player_numbers[2].ToString()) == three)
+                if (player_numbers.Contains(numbers[2].ToString()) == true && Int32.Parse(player_numbers[2].ToString()) == numbers[2])
                 {
                     a++;
                 }
-                if (player_numbers.Contains(four.ToString()) == true && Int32.Parse(player_numbers[3].ToString()) == four)
+                if (player_numbers.Contains(numbers[3].ToString()) == true && Int32.Parse(player_numbers[3].ToString()) == numbers[3])
                 {
                     a++;
                 }
@@ -94,62 +98,7 @@ namespace B10802010陳柏翰
                 }
                 a = 0;
                 b = 0;
-                /*
-                if (Int32.Parse(player_numbers[0].ToString()) == one&&Int32.Parse(player_numbers[1].ToString()) == two&&Int32.Parse(player_numbers[2].ToString()) == three&& Int32.Parse(player_numbers[3].ToString()) == four)
-                {
-
-                    Console.WriteLine("4A0B");
-                    
-                }
-                else if(Int32.Parse(player_numbers[0].ToString()) == one && Int32.Parse(player_numbers[1].ToString()) != two && Int32.Parse(player_numbers[2].ToString()) == three && Int32.Parse(player_numbers[3].ToString()) == four)
-                 {
-                     Console.WriteLine("3A0B");
-                }
-                else if (Int32.Parse(player_numbers[0].ToString()) == one && Int32.Parse(player_numbers[1].ToString()) != two && Int32.Parse(player_numbers[2].ToString()) != three && Int32.Parse(player_numbers[3].ToString()) == four)
-                {
-                     Console.WriteLine("2A0B");
-                }
-                else if (Int32.Parse(player_numbers[0].ToString()) == one && Int32.Parse(player_numbers[1].ToString()) != two && Int32.Parse(player_numbers[2].ToString()) != three && Int32.Parse(player_numbers[3].ToString()) != four)
-                {
-                     Console.WriteLine("1A0B");
-                }
-                else if (Int32.Parse(player_numbers[0].ToString()) != one && Int32.Parse(player_numbers[1].ToString()) != two && Int32.Parse(player_numbers[2].ToString()) != three && Int32.Parse(player_numbers[3].ToString()) == four)
-                {
-
-                }
-                else if (Int32.Parse(player_numbers[0].ToString()) == one && Int32.Parse(player_numbers[1].ToString()) == two && Int32.Parse(player_numbers[2].ToString()) != three && Int32.Parse(player_numbers[3].ToString()) == four)
-                {
-
-                }
-                else if (Int32.Parse(player_numbers[0].ToString()) == one && Int32.Parse(player_numbers[1].ToString()) == two && Int32.Parse(player_numbers[2].ToString()) == three && Int32.Parse(player_numbers[3].ToString()) != four)
-                {
-
-                }
-
-                else if (Int32.Parse(player_numbers[0].ToString()) != one && Int32.Parse(player_numbers[1].ToString()) != two && Int32.Parse(player_numbers[2].ToString()) != three && Int32.Parse(player_numbers[3].ToString()) != four)
-                {
-                    Console.WriteLine("0A0B");
-                }
-                
-                */
-
-
-
-
-            }
-
-
-
-
-
-
-
-
-         
-
-          
-          
-            
+            }            
             Console.ReadKey();
         }
     }
